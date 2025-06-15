@@ -1,0 +1,114 @@
+# memunculkan semua data
+tambahkan DB
+
+use Illuminate\Support\Facades\DB;
+
+SELECT * FROM Customers
+
+$customers = Customer::all();
+$customers = DB::table('customers')->get();
+
+menuncul kan filed tertentu
+$customers = Customer::select('CustomerName', 'City')->get();
+$customers = DB::table('customers')->select('CustomerName', 'City')->get();
+
+cari yang beda
+$countries = Customer::select('Country')->distinct()->get();
+$countries = DB::table('customers')->select('Country')->distinct()->get();
+
+$count = DB::table('customers')->distinct()->count('Country');
+$count = Customer::distinct('Country')->count('Country');
+
+
+mecari value
+$customers = DB::table('customers')->where('Country', 'Mexico')->get();
+$customers = Customer::where('Country', 'Mexico')->get();
+
+
+$customers = DB::table('customers')->where('CustomerID', '>', 80)->get();
+$customers = Customer::where('CustomerID', '>', 80)->get();
+
+
+order by
+$products = Product::orderBy('Price', 'desc')->get();
+$products = DB::table('products')->orderBy('Price')->get();
+
+and
+$customers = Customer::where('Country', 'Brazil')
+                     ->where('City', 'Rio de Janeiro')
+                     ->where('CustomerID', '>', 50)
+                     ->get();
+
+ $customers = DB::table('customers')
+                ->where('Country', 'Brazil')
+                ->where('City', 'Rio de Janeiro')
+                ->where('CustomerID', '>', 50)
+                ->get();
+
+
+and or
+$customers = DB::table('customers')
+                ->where('Country', 'Spain')
+                ->where(function ($query) {
+                    $query->where('CustomerName', 'LIKE', 'G%')
+                          ->orWhere('CustomerName', 'LIKE', 'R%');
+                })
+                ->get();
+
+
+or where
+$customers = Customer::where('Country', 'Germany')
+                     ->orWhere('Country', 'Spain')
+                     ->get();
+
+ $customers =  DB::table('customers')->where('Country', 'Germany')
+                     ->orWhere('Country', 'Spain')
+                     ->get();
+
+where not
+$customers = DB::table('customers')->whereNot('Country', 'Spain')->get();
+
+
+insert into
+
+use App\Models\Customer;
+Customer::create([
+    'CustomerName' => 'Cardinal',
+    'ContactName' => 'Tom B. Erichsen',
+    'Address' => 'Skagen 21',
+    'City' => 'Stavanger',
+    'PostalCode' => '4006',
+    'Country' => 'Norway',
+]);
+
+class Customer extends Model
+{
+    protected $fillable = ['CustomerName', 'ContactName', 'Address', 'City', 'PostalCode', 'Country'];
+}
+
+DB::table('customers')->insert([
+    'CustomerName' => 'Cardinal',
+    'ContactName' => 'Tom B. Erichsen',
+    'Address' => 'Skagen 21',
+    'City' => 'Stavanger',
+    'PostalCode' => '4006',
+    'Country' => 'Norway',
+]);
+
+
+
+use Illuminate\Support\Facades\DB;
+
+DB::table('customers')
+    ->where('CustomerID', 1)
+    ->update([
+        'ContactName' => 'Alfred Schmidt',
+        'City' => 'Frankfurt',
+    ]);
+
+use App\Models\Customer;
+
+Customer::where('CustomerID', 1)->update([
+    'ContactName' => 'Alfred Schmidt',
+    'City' => 'Frankfurt',
+]);
