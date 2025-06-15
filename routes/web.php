@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\KonsumenController;
 use App\Http\Controllers\KariyawanController;
 use App\Http\Controllers\PelangganController;
@@ -93,3 +94,4 @@ Auth::routes([
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda.index');

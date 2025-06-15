@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Kariyawan extends Model
 {
     use HasFactory;
-    protected $fillable= ['nama',
-    'nip' ,'tgl_lahir'];
+    protected $fillable = [
+        'nama',
+        'nip',
+        'tgl_lahir',
+        'image'
+    ];
 }
