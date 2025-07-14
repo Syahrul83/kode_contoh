@@ -173,7 +173,7 @@
     </div>
 
 
-    <header data-bs-theme="dark">
+    <header data-bs-theme="dark" class="md-3">
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Carousel</a>
@@ -202,7 +202,7 @@
         </nav>
     </header>
 
-    <main>
+    <main class="mt-3">
 
         <div id="myCarousel" class="carousel slide mb-6 mt-4" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -245,7 +245,7 @@
   ================================================== -->
         <!-- Wrap the rest of the page in another container to center all the content. -->
 
-        <div class="container marketing">
+        <div class="container marketing mt-5">
 
             <!-- Three columns of text below the carousel -->
             <div class="row">
