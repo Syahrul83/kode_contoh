@@ -26,7 +26,7 @@ use App\Http\Controllers\Auth\LoginController;
 */
 
 Route::get('/', function () {
-    return redirect('login');
+    return redirect('pelanggan');
 });
 Route::get('/konsumen', [KonsumenController::class, "konsumen"]);
 // Route::get('/foam', function () {
@@ -93,5 +93,5 @@ Auth::routes([
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda.index');
