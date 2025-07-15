@@ -10,53 +10,54 @@ class SupplayerController extends Controller
     public function index()
     {
         // $qurey =Konsumen::all();
-        $qurey =Supplayer::latest()->paginate(10);
-        return view('supplayer.index' , compact('qurey'));
+        $qurey = Supplayer::latest()->paginate(10);
+        return view('supplayer.index', compact('qurey'));
     }
     public function create()
-    { 
-        return view('supplayer.create' );
+    {
+        return view('supplayer.create');
 
 
     }
     public function store(Request $request)
-    { 
-        $qurey=Supplayer::create([
-            'nama'=>$request->nama,
-            'alamat'=>$request->alamat,
-            'bidang'=>$request->bidang,
-            'id_supplayer'=>$request->id_supplayer,
-            
+    {
+        Supplayer::create([
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'bidang' => $request->bidang,
+            'id_supplayer' => $request->id_supplayer,
+
         ]);
         return redirect()->route('supplayer.index')->with('message', 'berhasil di tambah');
 
     }
-    public function destroy($id){
-        $qurey=Supplayer::where('id','=',$id)->delete();
+    public function destroy($id)
+    {
+        Supplayer::where('id', '=', $id)->delete();
         return redirect()->route('supplayer.index')->with('message', 'berhasil di hapus');
-     }
-     public function edit($id)
-     {  $qurey=Supplayer::where('id','=',$id)->first();
-         return view('supplayer.edit',compact('qurey') );
- 
- 
-     }
+    }
+    public function edit($id)
+    {
+        $qurey = Supplayer::where('id', '=', $id)->first();
+        return view('supplayer.edit', compact('qurey'));
 
 
-     
-     public function update(Request $request,$id)
-     { 
-         
-            $qurey=Supplayer::where('id','=',$id)
-        ->update([
-            'nama'=>$request->nama,
-            'alamat'=>$request->alamat,
-            'bidang'=>$request->bidang,
-            'id_supplayer'=>$request->id_supplayer,
-            
-         ]);
-         return redirect()->route('supplayer.index')->with('message', 'berhasil di update');
- 
-     }
+    }
+
+
+
+    public function update(Request $request, $id)
+    {
+        Supplayer::where('id', '=', $id)
+            ->update([
+                'nama' => $request->nama,
+                'alamat' => $request->alamat,
+                'bidang' => $request->bidang,
+                'id_supplayer' => $request->id_supplayer,
+
+            ]);
+        return redirect()->route('supplayer.index')->with('message', 'berhasil di update');
+
+    }
 
 }
