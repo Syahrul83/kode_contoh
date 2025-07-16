@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
@@ -27,42 +26,55 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/kariyawan">kariyawan</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/supplayer">supplayer</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/user">user</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/obat">obat</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </li>
                 </ul>
             </div>
         </nav>
+  <main class="mt-4">
+      <div class="container">
+    <div class="row">
 
-        <main class="mt-4">
-
-            @yield('content')
-
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+            <a href="#" class="btn btn-primary mb-3">tambah</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>no</th>
+                        <th>nama </th>
+                        <th>nip</th>
+                        <th>tgl_lahir</th>
+                        <th>aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Agustina </td>
+                        <td>12345</td>
+                        <td>1985-06-02</td>
+                        <td>
+                                <button type="button" class="btn btn-sm btn-primary">EDIT</button>
+                                <button type="button" class="btn btn-sm btn-danger">HAPUS</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
         </main>
-
         <footer class="bg-info text-center text-white fixed-bottom">
             <div class="container p-4">
                 <p>© 2023 Your Company. All rights reserved.</p>
             </div>
         </footer>
     </div>
-
 </body>
-
 </html>
