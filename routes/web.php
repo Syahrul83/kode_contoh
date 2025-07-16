@@ -25,18 +25,13 @@ use App\Http\Controllers\BiodataController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/biodata', [BiodataController::class, "index"])->name("biodata.index");
-Route::get('/biodata/create', [BiodataController::class, "create"])->name('biodata.create');
-Route::post('/biodata', [BiodataController::class, "store"])->name('biodata.store');
-Route::delete('/biodata/{id}', [BiodataController::class, "destroy"])->name('biodata.destroy');
-Route::get('/biodata/{id}/edit', [BiodataController::class, "edit"])->name('biodata.edit');
-Route::put('/biodata/{id}', [BiodataController::class, "update"])->name('biodata.update');
+
 
 
 
 
 Route::get('/', function () {
-    return redirect('pelanggan');
+    return redirect('biodata');
 });
 Route::get('/konsumen', [KonsumenController::class, "konsumen"]);
 // Route::get('/foam', function () {
@@ -47,6 +42,14 @@ Route::get('/konsumen', [KonsumenController::class, "konsumen"]);
 // });
 
 Route::middleware(['auth'])->group(function () {
+
+
+    Route::get('/biodata', [BiodataController::class, "index"])->name("biodata.index");
+    Route::get('/biodata/create', [BiodataController::class, "create"])->name('biodata.create');
+    Route::post('/biodata', [BiodataController::class, "store"])->name('biodata.store');
+    Route::delete('/biodata/{id}', [BiodataController::class, "destroy"])->name('biodata.destroy');
+    Route::get('/biodata/{id}/edit', [BiodataController::class, "edit"])->name('biodata.edit');
+    Route::put('/biodata/{id}', [BiodataController::class, "update"])->name('biodata.update');
 
     Route::get('/pelanggan', [PelangganController::class, "index"])->name("pelanggan.index");
     Route::get('/pelanggan/create', [PelangganController::class, "create"])->name('pelanggan.create');

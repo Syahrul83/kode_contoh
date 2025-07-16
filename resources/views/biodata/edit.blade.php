@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <form action="{{ route("biodata.update", $data->id) }}" method="POST">
+                <form action="{{ route("biodata.update", $data->id) }}" method="POST" enctype="multipart/form-data">
 
                     @csrf
                     @method('PUT')
@@ -27,7 +27,10 @@
                         <input type="text" class="form-control" id="alamat" placeholder="Enter alamat" name="alamat"
                             value="{{ old('alamat', $data->alamat) }}">
                     </div>
-
+                    <div class="mb-3">
+                        <label for="image">Image:</label>
+                        <input type="file" class="form-control" accept="image/*" id="image" name="image">
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>

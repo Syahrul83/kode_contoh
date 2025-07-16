@@ -16,7 +16,7 @@
                         </ul>
                     </div>
                 @endif
-                <form action="{{ route("biodata.store") }}" method="POST">
+                <form action="{{ route("biodata.store") }}" method="POST" enctype="multipart/form-data">
 
                     @csrf
 
@@ -33,6 +33,11 @@
                     <div class="mb-3">
                         <label for="alamat" class="form-label">Alamat</label>
                         <input type="text" class="form-control" id="alamat" placeholder="Enter alamat" name="alamat">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image">Image:</label>
+                        <input type="file" class="form-control" accept="image/*" id="image" name="image">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

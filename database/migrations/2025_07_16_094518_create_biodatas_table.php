@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string('nama');
             $table->integer('umur');
             $table->string('alamat')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

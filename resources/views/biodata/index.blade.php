@@ -26,6 +26,7 @@
                             <th>nama</th>
                             <th>umur</th>
                             <th>alamat</th>
+                            <th>image</th>
                             <th>aksi</th>
 
                         </tr>
@@ -37,7 +38,7 @@
                                 <td>{{ $item->nama }}</td>
                                 <td>{{ $item->umur }}</td>
                                 <td>{{ $item->alamat }}</td>
-
+                                <td><img src="{{  asset($item->image) }}" alt="gambar" width="100px"></td>
                                 <td>
                                     <form onsubmit="return confirm('Apakah Anda Yakin ?');"
                                         action="{{ route('biodata.destroy', $item->id) }}" method="POST">
