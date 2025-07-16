@@ -25,7 +25,6 @@
                             <th>no</th>
                             <th>nama </th>
                             <th>email</th>
-
                             <th>aksi</th>
 
                         </tr>
