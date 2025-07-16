@@ -12,6 +12,9 @@
     <nav class="navbar navbar-expand-sm bg-info navbar-light">
         <div class="container-fluid">
           <ul class="navbar-nav">
+             <li class="nav-item">
+              <a class="nav-link active" href="/biodata">Biodata</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link active" href="/pelanggan">pelanggan</a>
             </li>
@@ -44,7 +47,7 @@
           </ul>
         </div>
       </nav>
-      
+
     </div>
       @yield('content')
 
